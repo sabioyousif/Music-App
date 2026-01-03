@@ -5,7 +5,7 @@ struct ResultsHeader: View {
     var body: some View {
         Text(title)
             .font(.system(size: 22, weight: .bold))
-            .foregroundStyle(.white)
+            .foregroundStyle(.primary)
             .padding(.top, 10)
     }
 }
@@ -25,14 +25,14 @@ struct TopResultCard: View {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(track.title)
                             .font(.system(size: 18, weight: .bold))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.primary)
                             .lineLimit(1)
 
                         HStack(spacing: 8) {
                             if track.isExplicit { ExplicitBadge() }
                             Text("Song • \(track.subtitle)")
                                 .font(.system(size: 15, weight: .semibold))
-                                .foregroundStyle(.white.opacity(0.62))
+                                .foregroundStyle(.secondary)
                                 .lineLimit(1)
                         }
                     }
@@ -42,12 +42,12 @@ struct TopResultCard: View {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(artist.name)
                             .font(.system(size: 18, weight: .bold))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.primary)
                             .lineLimit(1)
 
                         Text("Artist")
                             .font(.system(size: 15, weight: .semibold))
-                            .foregroundStyle(.white.opacity(0.62))
+                            .foregroundStyle(.secondary)
                     }
                 }
 
@@ -55,12 +55,12 @@ struct TopResultCard: View {
 
                 ZStack {
                     Circle()
-                        .fill(Color.white.opacity(0.10))
+                        .fill(.thinMaterial)
                         .frame(width: 34, height: 34)
 
                     Image(systemName: "play.fill")
                         .font(.system(size: 14, weight: .bold))
-                        .foregroundStyle(.white.opacity(0.92))
+                        .foregroundStyle(.primary)
                         .offset(x: 1)
                 }
             }
@@ -83,18 +83,18 @@ struct SongResultRow: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(track.title)
                         .font(.system(size: 18, weight: .semibold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.primary)
                         .lineLimit(1)
 
                     HStack(spacing: 7) {
                         if track.isExplicit { ExplicitBadge() }
                         Image(systemName: "play.square")
                             .font(.system(size: 12, weight: .semibold))
-                            .foregroundStyle(.white.opacity(0.45))
+                            .foregroundStyle(.secondary)
 
                         Text("Song • \(track.subtitle)")
                             .font(.system(size: 16))
-                            .foregroundStyle(.white.opacity(0.62))
+                            .foregroundStyle(.secondary)
                             .lineLimit(1)
                     }
                 }
@@ -103,7 +103,7 @@ struct SongResultRow: View {
 
                 Image(systemName: "ellipsis")
                     .font(.system(size: 18, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.55))
+                    .foregroundStyle(.secondary)
                     .frame(width: 32, height: 32)
             }
             .padding(.vertical, 2)
@@ -125,17 +125,17 @@ struct ArtistResultRow: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(artist.name)
                         .font(.system(size: 18, weight: .semibold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.primary)
                         .lineLimit(1)
 
                     HStack(spacing: 7) {
                         Image(systemName: "person.crop.circle")
                             .font(.system(size: 12, weight: .semibold))
-                            .foregroundStyle(.white.opacity(0.45))
+                            .foregroundStyle(.secondary)
 
                         Text("Artist")
                             .font(.system(size: 16))
-                            .foregroundStyle(.white.opacity(0.62))
+                            .foregroundStyle(.secondary)
                     }
                 }
 
@@ -143,7 +143,7 @@ struct ArtistResultRow: View {
 
                 Image(systemName: "chevron.right")
                     .font(.system(size: 14, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.45))
+                    .foregroundStyle(.secondary)
                     .frame(width: 28, height: 28)
             }
             .padding(.vertical, 2)
@@ -171,7 +171,7 @@ struct RecentSearchRow: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(item.title)
                         .font(.system(size: 18, weight: .semibold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.primary)
                         .lineLimit(1)
 
                     HStack(spacing: 7) {
@@ -179,11 +179,11 @@ struct RecentSearchRow: View {
 
                         Image(systemName: item.kind.icon)
                             .font(.system(size: 12, weight: .semibold))
-                            .foregroundStyle(.white.opacity(0.45))
+                            .foregroundStyle(.secondary)
 
                         Text(subtitleLine(for: item))
                             .font(.system(size: 16))
-                            .foregroundStyle(.white.opacity(0.62))
+                            .foregroundStyle(.secondary)
                             .lineLimit(1)
                     }
                 }
@@ -200,7 +200,7 @@ struct RecentSearchRow: View {
                             } else {
                                 Image(systemName: "plus.circle")
                                     .font(.system(size: 22, weight: .semibold))
-                                    .foregroundStyle(.white.opacity(0.55))
+                                    .foregroundStyle(.secondary)
                             }
                         }
                         .buttonStyle(.plain)
@@ -209,7 +209,7 @@ struct RecentSearchRow: View {
                     Button { onRemove(item.id) } label: {
                         Image(systemName: "xmark")
                             .font(.system(size: 18, weight: .semibold))
-                            .foregroundStyle(.white.opacity(0.55))
+                            .foregroundStyle(.secondary)
                             .frame(width: 28, height: 28)
                             .contentShape(Rectangle())
                     }

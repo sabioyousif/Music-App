@@ -23,7 +23,7 @@ struct LibraryRoot: View {
                     HStack(alignment: .center) {
                         Text("Playlists")
                             .font(.system(size: 40, weight: .bold))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.primary)
 
                         Spacer()
 
@@ -53,21 +53,21 @@ struct LibraryRoot: View {
                     } label: {
                         HStack(spacing: 14) {
                             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                .fill(Color.white.opacity(0.10))
+                                .fill(.thinMaterial)
                                 .frame(width: 70, height: 70)
                                 .overlay(
                                     Image(systemName: "plus")
                                         .font(.system(size: 22, weight: .bold))
-                                        .foregroundStyle(.white.opacity(0.9))
+                                        .foregroundStyle(.primary)
                                 )
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                        .stroke(Color.white.opacity(0.08), lineWidth: 1)
+                                        .stroke(.white.opacity(0.12), lineWidth: 1)
                                 )
 
                             Text("Create…")
                                 .font(.system(size: 22, weight: .semibold))
-                                .foregroundStyle(.white.opacity(0.92))
+                                .foregroundStyle(.primary)
 
                             Spacer()
                         }

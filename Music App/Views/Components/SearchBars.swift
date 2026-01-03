@@ -8,11 +8,11 @@ struct SearchBarPlain: View {
         HStack(spacing: 10) {
             Image(systemName: "magnifyingglass")
                 .font(.system(size: 16, weight: .semibold))
-                .foregroundStyle(.white.opacity(0.55))
+                .foregroundStyle(.secondary)
 
             TextField(placeholder, text: $text)
                 .font(.system(size: 16, weight: .semibold))
-                .foregroundStyle(.white.opacity(0.92))
+                .foregroundStyle(.primary)
                 .submitLabel(.search)
                 .autocorrectionDisabled(true)
                 .textInputAutocapitalization(.never)
@@ -23,7 +23,7 @@ struct SearchBarPlain: View {
                 } label: {
                     Image(systemName: "xmark.circle.fill")
                         .font(.system(size: 16, weight: .semibold))
-                        .foregroundStyle(.white.opacity(0.35))
+                        .foregroundStyle(.secondary)
                 }
                 .buttonStyle(.plain)
             }
@@ -43,11 +43,11 @@ struct SearchBar: View {
         HStack(spacing: 10) {
             Image(systemName: "magnifyingglass")
                 .font(.system(size: 16, weight: .semibold))
-                .foregroundStyle(.white.opacity(0.55))
+                .foregroundStyle(.secondary)
 
             TextField(placeholder, text: $text)
                 .font(.system(size: 16, weight: .semibold))
-                .foregroundStyle(.white.opacity(0.92))
+                .foregroundStyle(.primary)
                 .focused(isFocused)
                 .submitLabel(.search)
                 .autocorrectionDisabled(true)
@@ -59,7 +59,7 @@ struct SearchBar: View {
                 } label: {
                     Image(systemName: "xmark.circle.fill")
                         .font(.system(size: 16, weight: .semibold))
-                        .foregroundStyle(.white.opacity(0.35))
+                        .foregroundStyle(.secondary)
                 }
                 .buttonStyle(.plain)
             }
