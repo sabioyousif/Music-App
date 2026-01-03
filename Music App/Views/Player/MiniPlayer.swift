@@ -10,12 +10,12 @@ struct MiniPlayer: View {
             VStack(alignment: .leading, spacing: 3) {
                 Text(player.nowPlaying.title)
                     .font(.system(size: 16, weight: .semibold))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.primary)
                     .lineLimit(1)
 
                 Text(player.nowPlaying.subtitle)
                     .font(.system(size: 14))
-                    .foregroundStyle(.white.opacity(0.65))
+                    .foregroundStyle(.secondary)
                     .lineLimit(1)
             }
 
@@ -24,7 +24,7 @@ struct MiniPlayer: View {
             Button(action: {}) {
                 Image(systemName: "airplayaudio")
                     .font(.system(size: 18, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.9))
+                    .foregroundStyle(.secondary)
                     .frame(width: 34, height: 34)
             }
             .buttonStyle(.plain)
@@ -32,7 +32,7 @@ struct MiniPlayer: View {
             Button(action: { player.togglePlayPause() }) {
                 Image(systemName: player.isPlaying ? "pause.fill" : "play.fill")
                     .font(.system(size: 18, weight: .bold))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.primary)
                     .frame(width: 34, height: 34)
             }
             .buttonStyle(.plain)

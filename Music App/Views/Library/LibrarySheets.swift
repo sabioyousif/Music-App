@@ -13,16 +13,16 @@ struct HistorySheet: View {
                 HStack {
                     Text("Listening history")
                         .font(.system(size: 26, weight: .bold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.primary)
                     Spacer()
                     Button("Done") { dismiss() }
                         .font(.system(size: 16, weight: .bold))
-                        .foregroundStyle(.white.opacity(0.85))
+                        .foregroundStyle(.secondary)
                 }
 
                 if historyStore.entries.isEmpty {
                     Text("Nothing yet.")
-                        .foregroundStyle(.white.opacity(0.65))
+                        .foregroundStyle(.secondary)
                         .padding(.top, 20)
                     Spacer()
                 } else {
@@ -37,17 +37,17 @@ struct HistorySheet: View {
                                         VStack(alignment: .leading, spacing: 4) {
                                             Text(entry.track.title)
                                                 .font(.system(size: 18, weight: .semibold))
-                                                .foregroundStyle(.white)
+                                                .foregroundStyle(.primary)
                                                 .lineLimit(1)
                                             Text(entry.track.subtitle)
                                                 .font(.system(size: 15, weight: .semibold))
-                                                .foregroundStyle(.white.opacity(0.65))
+                                                .foregroundStyle(.secondary)
                                                 .lineLimit(1)
                                         }
                                         Spacer()
                                         Text(entry.playedAt.relativeTimeShort)
                                             .font(.system(size: 12, weight: .bold))
-                                            .foregroundStyle(.white.opacity(0.55))
+                                            .foregroundStyle(.secondary)
                                     }
                                     .padding(.vertical, 6)
                                 }
@@ -61,11 +61,11 @@ struct HistorySheet: View {
                             } label: {
                                 Text("Clear history")
                                     .font(.system(size: 15, weight: .semibold))
-                                    .foregroundStyle(.white.opacity(0.78))
+                                    .foregroundStyle(.primary)
                                     .padding(.horizontal, 16)
                                     .padding(.vertical, 10)
-                                    .background(Capsule().fill(Color.white.opacity(0.06)))
-                                    .overlay(Capsule().stroke(Color.white.opacity(0.10), lineWidth: 1))
+                                    .background(Capsule().fill(.ultraThinMaterial))
+                                    .overlay(Capsule().stroke(.white.opacity(0.12), lineWidth: 1))
                             }
                             .buttonStyle(.plain)
                             .padding(.top, 10)
@@ -93,11 +93,11 @@ struct CreatePlaylistSheet: View {
                 HStack {
                     Text("Create playlist")
                         .font(.system(size: 26, weight: .bold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.primary)
                     Spacer()
                     Button("Cancel") { dismiss() }
                         .font(.system(size: 16, weight: .bold))
-                        .foregroundStyle(.white.opacity(0.75))
+                        .foregroundStyle(.secondary)
                 }
 
                 SearchBarPlain(text: $name, placeholder: "Playlist name")
@@ -108,11 +108,11 @@ struct CreatePlaylistSheet: View {
                 } label: {
                     Text("Create")
                         .font(.system(size: 16, weight: .bold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.primary)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 12)
-                        .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Color.white.opacity(0.10)))
-                        .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(Color.white.opacity(0.10), lineWidth: 1))
+                        .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(.thinMaterial))
+                        .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(.white.opacity(0.12), lineWidth: 1))
                 }
                 .buttonStyle(.plain)
                 .disabled(name.trimmed.isEmpty)
@@ -141,34 +141,34 @@ struct RenamePlaylistSheet: View {
                 HStack {
                     Text("Playlist options")
                         .font(.system(size: 26, weight: .bold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.primary)
                     Spacer()
                     Button("Done") { onCancel() }
                         .font(.system(size: 16, weight: .bold))
-                        .foregroundStyle(.white.opacity(0.75))
+                        .foregroundStyle(.secondary)
                 }
 
                 Text("Rename")
                     .font(.system(size: 16, weight: .bold))
-                    .foregroundStyle(.white.opacity(0.75))
+                    .foregroundStyle(.secondary)
 
                 SearchBarPlain(text: $titleText, placeholder: "Playlist name")
 
                 Button(action: onSave) {
                     Text("Save name")
                         .font(.system(size: 16, weight: .bold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.primary)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 12)
-                        .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Color.white.opacity(0.10)))
-                        .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(Color.white.opacity(0.10), lineWidth: 1))
+                        .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(.thinMaterial))
+                        .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(.white.opacity(0.12), lineWidth: 1))
                 }
                 .buttonStyle(.plain)
 
                 Button(role: .destructive, action: onDelete) {
                     Text("Delete playlist")
                         .font(.system(size: 16, weight: .bold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.primary)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 12)
                         .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Color.red.opacity(0.30)))
@@ -198,16 +198,16 @@ struct AddFromHistorySheet: View {
                 HStack {
                     Text("Add from History")
                         .font(.system(size: 26, weight: .bold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.primary)
                     Spacer()
                     Button("Done") { dismiss() }
                         .font(.system(size: 16, weight: .bold))
-                        .foregroundStyle(.white.opacity(0.75))
+                        .foregroundStyle(.secondary)
                 }
 
                 if historyStore.entries.isEmpty {
                     Text("Play something first and it’ll show up here.")
-                        .foregroundStyle(.white.opacity(0.65))
+                        .foregroundStyle(.secondary)
                         .padding(.top, 20)
                     Spacer()
                 } else {
@@ -223,17 +223,17 @@ struct AddFromHistorySheet: View {
                                         VStack(alignment: .leading, spacing: 4) {
                                             Text(entry.track.title)
                                                 .font(.system(size: 18, weight: .semibold))
-                                                .foregroundStyle(.white)
+                                                .foregroundStyle(.primary)
                                                 .lineLimit(1)
                                             Text(entry.track.subtitle)
                                                 .font(.system(size: 15, weight: .semibold))
-                                                .foregroundStyle(.white.opacity(0.65))
+                                                .foregroundStyle(.secondary)
                                                 .lineLimit(1)
                                         }
                                         Spacer()
                                         Image(systemName: "plus.circle")
                                             .font(.system(size: 20, weight: .semibold))
-                                            .foregroundStyle(.white.opacity(0.75))
+                                            .foregroundStyle(.secondary)
                                     }
                                     .padding(.vertical, 6)
                                 }

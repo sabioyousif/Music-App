@@ -26,7 +26,7 @@ struct SearchScreen: View {
                             } label: {
                                 Image(systemName: "xmark")
                                     .font(.system(size: 16, weight: .bold))
-                                    .foregroundStyle(.white.opacity(0.85))
+                                    .foregroundStyle(.primary)
                                     .frame(width: 44, height: 44)
                                     .background(LiquidGlassSurface(cornerRadius: 14, tintOpacity: 0.28))
                             }
@@ -43,11 +43,11 @@ struct SearchScreen: View {
 
                                 Text("Play what you love")
                                     .font(.system(size: 28, weight: .bold))
-                                    .foregroundStyle(.white)
+                                    .foregroundStyle(.primary)
 
                                 Text("Search for artists, songs, and more")
                                     .font(.system(size: 16, weight: .semibold))
-                                    .foregroundStyle(.white.opacity(0.65))
+                                    .foregroundStyle(.secondary)
                                     .multilineTextAlignment(.center)
 
                                 Spacer(minLength: 0)
@@ -58,7 +58,7 @@ struct SearchScreen: View {
                         } else {
                             Text("Recent searches")
                                 .font(.system(size: 28, weight: .bold))
-                                .foregroundStyle(.white)
+                                .foregroundStyle(.primary)
                                 .padding(.top, 4)
 
                             VStack(spacing: 14) {
@@ -97,13 +97,13 @@ struct SearchScreen: View {
                                 } label: {
                                     Text("Clear recent searches")
                                         .font(.system(size: 15, weight: .semibold))
-                                        .foregroundStyle(.white.opacity(0.78))
+                                        .foregroundStyle(.primary)
                                         .padding(.horizontal, 16)
                                         .padding(.vertical, 10)
                                         .background(
                                             Capsule()
-                                                .fill(Color.white.opacity(0.06))
-                                                .overlay(Capsule().stroke(Color.white.opacity(0.10), lineWidth: 1))
+                                                .fill(.ultraThinMaterial)
+                                                .overlay(Capsule().stroke(.white.opacity(0.12), lineWidth: 1))
                                         )
                                 }
                                 .buttonStyle(.plain)
@@ -116,7 +116,7 @@ struct SearchScreen: View {
 
                         Text("Top result")
                             .font(.system(size: 22, weight: .bold))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.primary)
                             .padding(.top, 6)
 
                         if let top = results.top {
@@ -130,7 +130,7 @@ struct SearchScreen: View {
                             }
                         } else {
                             Text("No results")
-                                .foregroundStyle(.white.opacity(0.6))
+                                .foregroundStyle(.secondary)
                                 .padding(.vertical, 12)
                         }
 
