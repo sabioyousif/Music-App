@@ -1,24 +1,15 @@
-//
-//  ContentView.swift
-//  Music App
-//
-//  Created by Mary Yousif on 2026-01-03.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        AppRootView()
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(HistoryStore())
+        .environmentObject(PlayerStore())
+        .environmentObject(SearchStore())
+        .environmentObject(LibraryStore(seedDemoData: true))
 }
