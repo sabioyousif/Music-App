@@ -1,4 +1,6 @@
 import Foundation
+import Combine
+import SwiftUI
 
 final class LibraryStore: ObservableObject {
     private static let playlistsKey = "library.playlists"
