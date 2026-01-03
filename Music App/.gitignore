@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+
+# Xcode
+DerivedData/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+*.moved-aside
+*.swp
+*.tmp
+
+# Build products
+build/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+Packages/
+Package.resolved
+.swiftpm/
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# Accidental secrets / signing assets (do not commit)
+*.p12
+*.cer
+*.mobileprovision
+*.keystore
+*.env
