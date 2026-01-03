@@ -10,7 +10,7 @@ struct LibraryTopPill: View {
             Button(action: onSearch) {
                 Image(systemName: "magnifyingglass")
                     .font(.system(size: 17, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.92))
+                    .foregroundStyle(.primary)
                     .frame(width: 42, height: 42)
             }
             .buttonStyle(.plain)
@@ -24,7 +24,7 @@ struct LibraryTopPill: View {
             } label: {
                 Image(systemName: "line.3.horizontal.decrease")
                     .font(.system(size: 17, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.92))
+                    .foregroundStyle(.primary)
                     .frame(width: 42, height: 42)
             }
             .buttonStyle(.plain)
@@ -32,7 +32,7 @@ struct LibraryTopPill: View {
             Button(action: onMore) {
                 Image(systemName: "ellipsis")
                     .font(.system(size: 17, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.92))
+                    .foregroundStyle(.primary)
                     .frame(width: 42, height: 42)
             }
             .buttonStyle(.plain)
@@ -54,17 +54,17 @@ struct PlaylistRow: View {
             VStack(alignment: .leading, spacing: 6) {
                 Text(playlist.name)
                     .font(.system(size: 22, weight: .semibold))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.primary)
                     .lineLimit(1)
 
                 Text("by \(playlist.owner)")
                     .font(.system(size: 16, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.65))
+                    .foregroundStyle(.secondary)
                     .lineLimit(1)
 
                 Text(playlist.trackCountText)
                     .font(.system(size: 14, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.55))
+                    .foregroundStyle(.secondary)
             }
 
             Spacer()
@@ -72,7 +72,7 @@ struct PlaylistRow: View {
             Button(action: onMore) {
                 Image(systemName: "ellipsis")
                     .font(.system(size: 18, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.70))
+                    .foregroundStyle(.secondary)
                     .frame(width: 44, height: 44)
             }
             .buttonStyle(.plain)
@@ -90,13 +90,16 @@ struct PlaylistMosaicCover: View {
         let tiles = Array(tracks.prefix(4))
         ZStack {
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(Color.white.opacity(0.06))
-                .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).stroke(Color.white.opacity(0.08), lineWidth: 1))
+                .fill(.thinMaterial)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .stroke(.white.opacity(0.12), lineWidth: 1)
+                )
 
             if tiles.isEmpty {
                 Image(systemName: "music.note")
                     .font(.system(size: 22, weight: .bold))
-                    .foregroundStyle(.white.opacity(0.70))
+                    .foregroundStyle(.secondary)
             } else if tiles.count == 1 {
                 AlbumArt(seed: tiles[0].artSeed, size: size)
                     .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
@@ -122,7 +125,7 @@ struct PlaylistMosaicCover: View {
             if let seed {
                 AlbumArt(seed: seed, size: cellSize)
             } else {
-                Rectangle().fill(Color.white.opacity(0.05))
+                Rectangle().fill(.thinMaterial)
             }
         }
         .frame(width: cellSize, height: cellSize)

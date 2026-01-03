@@ -14,7 +14,7 @@ struct TopHeader: View {
 
                 Text("Music")
                     .font(.system(size: 34, weight: .bold))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.primary)
             }
 
             Spacer()
@@ -26,7 +26,7 @@ struct TopHeader: View {
                 Circle().fill(Color.orange.opacity(0.75)).frame(width: 34, height: 34)
                 Text("S")
                     .font(.system(size: 16, weight: .bold))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.primary)
             }
         }
         .padding(.top, 8)
@@ -40,7 +40,7 @@ struct IconButton: View {
         Button(action: action) {
             Image(systemName: icon)
                 .font(.system(size: 18, weight: .semibold))
-                .foregroundStyle(.white.opacity(0.92))
+                .foregroundStyle(.primary)
                 .frame(width: 34, height: 34)
                 .contentShape(Rectangle())
         }
@@ -58,7 +58,7 @@ struct IconButtonWithBadge: View {
             ZStack(alignment: .topTrailing) {
                 Image(systemName: icon)
                     .font(.system(size: 18, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.92))
+                    .foregroundStyle(.primary)
                     .frame(width: 34, height: 34)
 
                 Text(badge)
@@ -88,13 +88,13 @@ struct ChipRow: View {
                     } label: {
                         Text(chip)
                             .font(.system(size: 15, weight: .semibold))
-                            .foregroundStyle(.white.opacity(selected == chip ? 0.95 : 0.85))
+                            .foregroundStyle(selected == chip ? .primary : .secondary)
                             .padding(.horizontal, 14)
                             .padding(.vertical, 9)
                             .background(
                                 Capsule()
-                                    .fill(Color.white.opacity(selected == chip ? 0.14 : 0.10))
-                                    .overlay(Capsule().stroke(Color.white.opacity(0.09), lineWidth: 1))
+                                    .fill(.ultraThinMaterial)
+                                    .overlay(Capsule().stroke(.white.opacity(0.12), lineWidth: 1))
                             )
                     }
                     .buttonStyle(.plain)
@@ -114,18 +114,18 @@ struct SectionHeader: View {
         HStack {
             Text(title)
                 .font(.system(size: 30, weight: .bold))
-                .foregroundStyle(.white)
+                .foregroundStyle(.primary)
             Spacer()
             Button(action: action) {
                 Text(buttonTitle)
                     .font(.system(size: 14, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.9))
+                    .foregroundStyle(.primary)
                     .padding(.horizontal, 14)
                     .padding(.vertical, 8)
                     .background(
                         Capsule()
-                            .fill(Color.white.opacity(0.06))
-                            .overlay(Capsule().stroke(Color.white.opacity(0.10), lineWidth: 1))
+                            .fill(.ultraThinMaterial)
+                            .overlay(Capsule().stroke(.white.opacity(0.12), lineWidth: 1))
                     )
             }
             .buttonStyle(.plain)
@@ -210,20 +210,20 @@ struct TrackRow: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(track.title)
                         .font(.system(size: 18, weight: .semibold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.primary)
                         .lineLimit(1)
                     HStack(spacing: 6) {
                         if track.isExplicit { ExplicitBadge() }
                         Text(track.subtitle)
                             .font(.system(size: 16))
-                            .foregroundStyle(.white.opacity(0.65))
+                            .foregroundStyle(.secondary)
                             .lineLimit(1)
                     }
                 }
                 Spacer()
                 Image(systemName: "ellipsis.vertical")
                     .font(.system(size: 18, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.8))
+                    .foregroundStyle(.secondary)
                     .frame(width: 30, height: 30)
             }
             .padding(.vertical, 6)

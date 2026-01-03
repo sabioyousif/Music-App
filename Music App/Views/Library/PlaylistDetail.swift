@@ -24,12 +24,12 @@ struct PlaylistDetail: View {
 
                 Text(resolvedPlaylist.name)
                     .font(.system(size: 34, weight: .bold))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.primary)
                     .padding(.top, 4)
 
                 Text("by \(resolvedPlaylist.owner) • \(resolvedPlaylist.trackCountText)")
                     .font(.system(size: 15, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.65))
+                    .foregroundStyle(.secondary)
 
                 HStack(spacing: 12) {
                     Button {
@@ -43,11 +43,11 @@ struct PlaylistDetail: View {
                             Text("Play")
                                 .font(.system(size: 16, weight: .bold))
                         }
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.primary)
                         .padding(.horizontal, 14)
                         .padding(.vertical, 10)
-                        .background(Capsule().fill(Color.white.opacity(0.10)))
-                        .overlay(Capsule().stroke(Color.white.opacity(0.10), lineWidth: 1))
+                        .background(Capsule().fill(.thinMaterial))
+                        .overlay(Capsule().stroke(.white.opacity(0.12), lineWidth: 1))
                     }
                     .buttonStyle(.plain)
 
@@ -60,11 +60,11 @@ struct PlaylistDetail: View {
                             Text("Add from History")
                                 .font(.system(size: 16, weight: .bold))
                         }
-                        .foregroundStyle(.white.opacity(0.92))
+                        .foregroundStyle(.primary)
                         .padding(.horizontal, 14)
                         .padding(.vertical, 10)
-                        .background(Capsule().fill(Color.white.opacity(0.06)))
-                        .overlay(Capsule().stroke(Color.white.opacity(0.10), lineWidth: 1))
+                        .background(Capsule().fill(.ultraThinMaterial))
+                        .overlay(Capsule().stroke(.white.opacity(0.12), lineWidth: 1))
                     }
                     .buttonStyle(.plain)
 
@@ -75,7 +75,7 @@ struct PlaylistDetail: View {
                 if resolvedPlaylist.tracks.isEmpty {
                     Text("No tracks yet")
                         .font(.system(size: 16, weight: .semibold))
-                        .foregroundStyle(.white.opacity(0.60))
+                        .foregroundStyle(.secondary)
                         .padding(.top, 14)
                 } else {
                     VStack(spacing: 10) {
