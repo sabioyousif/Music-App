@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 final class HistoryStore: ObservableObject {
     private static let storageKey = "history.entries"

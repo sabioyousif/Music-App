@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 final class LibraryStore: ObservableObject {
     private static let playlistsKey = "library.playlists"

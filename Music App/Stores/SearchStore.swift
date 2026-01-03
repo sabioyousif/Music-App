@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 final class SearchStore: ObservableObject {
     @Published var recents: [RecentSearchItem]
